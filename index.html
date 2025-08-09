@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Tu Marca — Agenda una llamada y conoce testimonios</title>
+    <meta
+      name="description"
+      content="Landing page simple y rápida: presentación, agenda integrada con Calendly, testimonios reales y preguntas frecuentes."
+    />
+    <link rel="canonical" href="https://tumarca.vercel.app/" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:title" content="Tu Marca — Agenda una llamada" />
+    <meta
+      property="og:description"
+      content="Conoce cómo puedo ayudarte. Agenda una llamada en minutos."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Tailwind (CDN) - ideal para un prototipo rápido. Si luego lo quieres local, lo migramos. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Tailwind config rápido para tipografías y colores de marca
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                50: "#eef2ff",
+                100: "#e0e7ff",
+                200: "#c7d2fe",
+                300: "#a5b4fc",
+                400: "#818cf8",
+                500: "#6366f1",
+                600: "#4f46e5",
+                700: "#4338ca",
+                800: "#3730a3",
+                900: "#312e81",
+              },
+            },
+            fontFamily: {
+              display: [
+                "ui-sans-serif",
+                "system-ui",
+                "Segoe UI",
+                "Roboto",
+                "Helvetica",
+                "Arial",
+                "sans-serif",
+              ],
+              body: [
+                "Inter",
+                "ui-sans-serif",
+                "system-ui",
+                "Segoe UI",
+                "Roboto",
+                "Helvetica",
+                "Arial",
+                "sans-serif",
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Suaves mejoras */
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+
+    <!-- Calendly embed -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      type="text/javascript"
+      async
+    ></script>
+
+    <!-- Schema.org JSON-LD (ajusta name/url/logo) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Santiago Rojo",
+        "url": "https://santiagorojo.vercel.app/",
+        "logo": "https://santiagorojo.vercel.app/logo.svg"
+      }
+    </script>
+  </head>
+  <body class="bg-white text-slate-800 font-body">
+    <!-- Header -->
+    <header
+      class="sticky top-0 z-40 backdrop-blur bg-white/70 border-b border-slate-200/60"
+    >
+      <div
+        class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between"
+      >
+        <a
+          href="#inicio"
+          class="flex items-center gap-2 font-semibold text-slate-900"
+        >
+          <svg
+            width="28"
+            height="28"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <path d="M12 3l7 4v10l-7 4-7-4V7l7-4z" class="fill-brand-600" />
+          </svg>
+          <span>Tu Marca</span>
+        </a>
+        <nav class="hidden sm:flex items-center gap-6 text-sm">
+          <a href="#inicio" class="hover:text-brand-600">Inicio</a>
+          <a href="#agenda" class="hover:text-brand-600">Agenda</a>
+          <a href="#testimonios" class="hover:text-brand-600">Testimonios</a>
+          <a href="#faq" class="hover:text-brand-600">FAQ</a>
+        </nav>
+        <a
+          href="#agenda"
+          class="hidden sm:inline-flex items-center gap-2 rounded-xl bg-brand-600 text-white px-4 py-2 font-medium shadow-sm hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-400"
+          >Agendar llamada</a
+        >
+      </div>
+    </header>
+
+    <!-- Hero / Presentación -->
+    <section id="inicio" class="relative overflow-hidden">
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-brand-50 to-transparent"
+      ></div>
+      <div class="max-w-6xl mx-auto px-4 py-16 sm:py-24 relative">
+        <div class="grid md:grid-cols-2 gap-10 items-center">
+          <div>
+            <h1
+              class="text-4xl sm:text-5xl font-extrabold tracking-tight text-slate-900"
+            >
+              Impulsa tu proyecto con una llamada de 20 minutos
+            </h1>
+            <p class="mt-5 text-lg text-slate-600">
+              Te explico cómo puedo ayudarte, vemos tu caso y coordinamos el
+              siguiente paso. Sin vueltas.
+            </p>
+            <div class="mt-8 flex flex-col sm:flex-row gap-3">
+              <a
+                href="#agenda"
+                class="inline-flex items-center justify-center rounded-xl bg-brand-600 text-white px-6 py-3 font-semibold shadow-sm hover:bg-brand-700 focus:outline-none focus:ring-2 focus:ring-brand-400"
+                >Agendar ahora</a
+              >
+              <a
+                href="#testimonios"
+                class="inline-flex items-center justify-center rounded-xl border border-slate-300 px-6 py-3 font-semibold text-slate-700 hover:bg-slate-50"
+                >Ver testimonios</a
+              >
+            </div>
+            <div class="mt-6 flex items-center gap-4 text-sm text-slate-500">
+              <div class="flex items-center gap-2">
+                <span
+                  class="inline-block w-2 h-2 rounded-full bg-emerald-500"
+                ></span>
+                Respuesta en 24h
+              </div>
+              <div>✔️ Sin costo inicial</div>
+            </div>
+          </div>
+          <div class="relative">
+            <div
+              class="aspect-[4/3] w-full rounded-2xl border border-slate-200 shadow-sm bg-white p-6"
+            >
+              <div class="h-full w-full grid place-items-center text-center">
+                <div>
+                  <p
+                    class="text-sm uppercase tracking-widest text-brand-700 font-semibold"
+                  >
+                    Qué haremos
+                  </p>
+                  <h2 class="mt-2 text-2xl font-bold">
+                    Entender tu objetivo → Plan claro → Próximos pasos
+                  </h2>
+                  <p class="mt-3 text-slate-600">
+                    Una llamada corta para darte claridad y decidir si seguimos.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Agenda (Calendly) -->
+    <section
+      id="agenda"
+      class="py-16 sm:py-24 bg-slate-50 border-t border-b border-slate-200/70"
+    >
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-2xl mb-8">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            Agenda tu llamada
+          </h2>
+          <p class="mt-3 text-slate-600">
+            Selecciona el horario que te quede mejor. La reserva se confirma
+            automáticamente.
+          </p>
+        </div>
+        <!-- Calendly integrado -->
+        <div
+          class="calendly-inline-widget"
+          data-url="https://calendly.com/santiagorojo-official"
+          style="min-width: 320px; height: 700px"
+        ></div>
+        <script
+          type="text/javascript"
+          src="https://assets.calendly.com/assets/external/widget.js"
+          async
+        ></script>
+      </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section id="testimonios" class="py-16 sm:py-24">
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-2xl mb-12">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            Lo que dicen
+          </h2>
+          <p class="mt-3 text-slate-600">
+            Resultados y experiencias de personas que ya trabajaron conmigo.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Card 1 -->
+          <figure
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
+            <blockquote class="text-slate-700">
+              “En 30 minutos tuve claridad y un plan de acción concreto. Súper
+              recomendable.”
+            </blockquote>
+            <figcaption class="mt-4 flex items-center gap-3">
+              <span
+                class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 font-bold"
+                >AG</span
+              >
+              <div>
+                <div class="font-semibold">Ana Gómez</div>
+                <div class="text-sm text-slate-500">Emprendedora</div>
+              </div>
+            </figcaption>
+          </figure>
+          <!-- Card 2 -->
+          <figure
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
+            <blockquote class="text-slate-700">
+              “Nos ayudó a priorizar y ejecutar las primeras mejoras que
+              movieron la aguja.”
+            </blockquote>
+            <figcaption class="mt-4 flex items-center gap-3">
+              <span
+                class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 font-bold"
+                >SM</span
+              >
+              <div>
+                <div class="font-semibold">Sergio Martínez</div>
+                <div class="text-sm text-slate-500">PM, Agencia XYZ</div>
+              </div>
+            </figcaption>
+          </figure>
+          <!-- Card 3 -->
+          <figure
+            class="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm"
+          >
+            <blockquote class="text-slate-700">
+              “Proceso claro y comunicación impecable. Volvería a contratar sin
+              dudar.”
+            </blockquote>
+            <figcaption class="mt-4 flex items-center gap-3">
+              <span
+                class="inline-flex h-10 w-10 items-center justify-center rounded-full bg-brand-100 text-brand-700 font-bold"
+                >LM</span
+              >
+              <div>
+                <div class="font-semibold">Lucía Méndez</div>
+                <div class="text-sm text-slate-500">Founder, App EDU</div>
+              </div>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section
+      id="faq"
+      class="py-16 sm:py-24 bg-slate-50 border-t border-slate-200/70"
+    >
+      <div class="max-w-6xl mx-auto px-4">
+        <div class="max-w-2xl mb-10">
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900">
+            Preguntas frecuentes
+          </h2>
+          <p class="mt-3 text-slate-600">
+            Respuestas rápidas. Si te queda alguna duda, escríbeme.
+          </p>
+        </div>
+        <div class="space-y-4">
+          <details
+            class="group rounded-2xl border border-slate-200 bg-white p-5 open:shadow-sm"
+          >
+            <summary
+              class="cursor-pointer list-none font-semibold flex items-center justify-between"
+            >
+              ¿La llamada tiene costo?
+              <span class="transition group-open:rotate-45 text-slate-400"
+                >＋</span
+              >
+            </summary>
+            <div class="mt-3 text-slate-600">
+              No. La primera llamada de 20 minutos es gratuita. Si vemos encaje,
+              coordinamos el siguiente paso.
+            </div>
+          </details>
+          <details
+            class="group rounded-2xl border border-slate-200 bg-white p-5"
+          >
+            <summary
+              class="cursor-pointer list-none font-semibold flex items-center justify-between"
+            >
+              ¿Qué necesito preparar?
+              <span class="transition group-open:rotate-45 text-slate-400"
+                >＋</span
+              >
+            </summary>
+            <div class="mt-3 text-slate-600">
+              Con tener claro tu objetivo y contexto actual es suficiente. Si
+              tienes materiales, mejor aún.
+            </div>
+          </details>
+          <details
+            class="group rounded-2xl border border-slate-200 bg-white p-5"
+          >
+            <summary
+              class="cursor-pointer list-none font-semibold flex items-center justify-between"
+            >
+              ¿Trabajas con clientes fuera de Uruguay?
+              <span class="transition group-open:rotate-45 text-slate-400"
+                >＋</span
+              >
+            </summary>
+            <div class="mt-3 text-slate-600">
+              Sí, coordinamos por videollamada y ajustamos horarios según tu
+              zona.
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10">
+      <div
+        class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-500"
+      >
+        <p>
+          © <span id="year"></span> Tu Marca. Todos los derechos reservados.
+        </p>
+        <div class="flex items-center gap-5">
+          <a class="hover:text-slate-700" href="#agenda">Agendar</a>
+          <a class="hover:text-slate-700" href="#faq">FAQ</a>
+          <a class="hover:text-slate-700" href="mailto:hola@tumarca.com"
+            >Contacto</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Año dinámico en el footer
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>
